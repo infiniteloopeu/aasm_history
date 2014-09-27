@@ -68,6 +68,11 @@ You can also call `has_state_history` in your model to create `state_histories` 
     #> Order.last.state_histories
      [#<StateHistory id: 2, state: "in_production", previous_state: "new", stateable_id: 2, stateable_type: "Order", created_at: "2014-09-27 22:34:00", updated_at: "2014-09-27 22:34:00">]
 
+## Configuration
+
+In initializer you can set `AasmHistory.enabled_by_default = true` to make all AASM instances have history support by default (in other words no need to call `has_history`).
+To make exception call `has_history(false)` in `aasm` block.
+
 ## Extending
 
 Gem is highly extendable and configurable.

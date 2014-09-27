@@ -19,3 +19,7 @@ end
 class StateHistory < ActiveRecord::Base
   belongs_to :stateable, polymorphic: true
 end
+
+class DummyNotConfigured < ActiveRecord::Base
+  include AASM
+end

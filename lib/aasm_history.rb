@@ -1,6 +1,12 @@
 require 'aasm'
 
 module AasmHistory
+  class << self
+    attr_accessor :enabled_by_default
+  end
+
+  self.enabled_by_default = false
+
   autoload :PersistanceDeterminator,  'aasm_history/persistance_determinator'
   autoload :UnknownPersistanceLayer,  'aasm_history/persistance_determinator'
 
