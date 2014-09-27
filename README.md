@@ -22,12 +22,21 @@ Add migration:
       t.datetime :created_at
       t.datetime :updated_at
     end
-
+    
 It will create state history table - common for all classes.
+
+Create StateHistory class
+
+    class StateHistory < ActiveRecord::Base
+      belongs_to :stateable, polymorphic: true
+    end
 
 Inside aasm block insert
 
-    has_history
+    aasm do 
+        has_history
+        (...)
+    end
 
 And that's all!
 
