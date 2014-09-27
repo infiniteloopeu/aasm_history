@@ -15,7 +15,7 @@ module AASM
       end
     end
 
-    def has_history options = {}
+    def has_history
       configure 'history_class', 'StateHistory'
       @klass.send :prepend, HistoryMethods
     end

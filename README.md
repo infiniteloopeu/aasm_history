@@ -1,6 +1,8 @@
 # AasmHistory
 
-TODO: Write a gem description
+Track and persist AASM state history.
+
+Currently only ActiveRecord is supported.
 
 ## Installation
 
@@ -8,22 +10,27 @@ Add this line to your application's Gemfile:
 
     gem 'aasm_history'
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install aasm_history
-
 ## Usage
 
-TODO: Write usage instructions here
+Add migration:
+
+    create_table :state_histories do |t|
+      t.string   :state
+      t.string   :previous_state
+      t.integer  :stateable_id
+      t.string   :stateable_type
+      t.datetime :created_at
+      t.datetime :updated_at
+    end
+
+It will create state history table - common for all classes.
+
+Inside aasm block insert
+
+    has_history
+
+And that's all!
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/aasm_history/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+You are welcome to contribute with Github's Pull Requests!
