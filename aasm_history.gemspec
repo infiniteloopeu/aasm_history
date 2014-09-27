@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.0.0' # due to Module#prepend
 
   spec.add_dependency 'aasm', '~> 3.3'
+  spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'bundler', '~> 1.6'
   spec.add_development_dependency 'rspec', '~> 3.1'
   spec.add_development_dependency 'activerecord', '~> 4.1'
