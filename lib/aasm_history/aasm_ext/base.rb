@@ -3,7 +3,8 @@ module AASM
     def has_history
       case AasmHistory::PersistanceDeterminator.determine(@klass)
         when :active_record
-          configure 'history_class', 'StateHistory'
+          configure :history_class, 'StateHistory'
+          configure :creator_class, 'AasmHistory::Persistance::ActiveRecordCreator'
           @klass.send :prepend, AasmHistory::Persistance::ActiveRecord
         else
           raise AasmHistory::UnknownPersistanceLayer

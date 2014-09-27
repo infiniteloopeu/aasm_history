@@ -12,7 +12,7 @@ module AasmHistory
       private
 
       def store_aasm_history state, previous_state
-        AasmHistory::Persistance::ActiveRecordCreator.new(self, state, previous_state).create
+        AASM::StateMachine[self.class].config.creator_class.constantize.new(self, state, previous_state).create
       end
     end
   end
