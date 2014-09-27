@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jan Jedrychowski']
   spec.email         = ['jan@jedrychowski.org']
   spec.summary       = %q{Track and persist AASM state history}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/gogiel/aasm_history'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
