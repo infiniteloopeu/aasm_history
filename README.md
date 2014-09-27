@@ -1,8 +1,12 @@
+[![Build Status](https://travis-ci.org/gogiel/aasm_history.svg?branch=master)](https://travis-ci.org/gogiel/aasm_history)
+
 # AasmHistory
 
 Track and persist AASM state history.
 
 Currently only ActiveRecord is supported.
+
+This gem depends on Ruby >= 2.0.0.
 
 ## Installation
 
