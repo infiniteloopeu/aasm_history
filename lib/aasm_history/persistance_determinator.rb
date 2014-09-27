@@ -6,14 +6,21 @@ module AasmHistory
   end
 
   class PersistanceDeterminator
-    def self.determine(base)
-      hierarchy = base.ancestors.map {|klass| klass.to_s}
+    def initialize base
+      @base = base
+    end
+
+    def determine
+      hierarchy = @base.ancestors.map {|klass| klass.to_s}
 
       if hierarchy.include?('ActiveRecord::Base')
-        AasmHistory::Persistance::ActiveRecord
-      else
-        raise UnknownPersistanceLayer
+        :active_record
       end
     end
+
+    def self.determine base
+      new(base).determine
+    end
+
   end
 end

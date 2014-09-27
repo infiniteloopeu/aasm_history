@@ -1,6 +1,7 @@
 module AasmHistory
   module Persistance
     module ActiveRecord
+
       def aasm_write_state state
         previous_state = read_attribute(self.class.aasm_column)
         success = super state
