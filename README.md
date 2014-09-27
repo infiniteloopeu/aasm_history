@@ -4,8 +4,6 @@
 
 Track and persist AASM state history.
 
-Currently only ActiveRecord is supported.
-
 This gem depends on Ruby >= 2.0.0.
 
 ## Installation
@@ -14,7 +12,9 @@ Add this line to your application's Gemfile:
 
     gem 'aasm_history'
 
-## Usage
+## Installation
+
+### Active Record
 
 Add migration:
 
@@ -35,15 +35,43 @@ Create StateHistory class
       belongs_to :stateable, polymorphic: true
     end
 
-Inside aasm block insert
+### Sequel, Mongoid and others
+
+Not supported.
+
+## Usage
+
+Inside `aasm` block call `has_history`.
 
     aasm do 
         has_history
-        (...)
+        # ...
     end
+    
+You can also call `has_state_history` in your model to create `state_histories` relation.
+   
+## Example:
 
-And that's all!
+### Definition
+
+    class Order
+        aasm do
+            has_history
+            # ...
+        end
+        
+        has_state_history
+    end
+    
+### Usage
+    
+    #> Order.last.state_histories
+     [#<StateHistory id: 2, state: "in_production", previous_state: "new", stateable_id: 2, stateable_type: "Order", created_at: "2014-09-27 22:34:00", updated_at: "2014-09-27 22:34:00">]
+
+## Extending
+
+Gem is highly extendable and configurable.
 
 ## Contributing
 
-You are welcome to contribute with Github's Pull Requests!
+You are welcome to contribute with Pull Requests and new Issues!

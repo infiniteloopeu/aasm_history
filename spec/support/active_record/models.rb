@@ -1,5 +1,3 @@
-require 'aasm'
-
 class Dummy < ActiveRecord::Base
   include AASM
 
@@ -14,6 +12,8 @@ class Dummy < ActiveRecord::Base
       transitions from: :a, to: :b
     end
   end
+
+  has_state_history
 end
 
 class StateHistory < ActiveRecord::Base

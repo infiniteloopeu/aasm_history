@@ -16,14 +16,22 @@ end
 
 describe 'saving history' do
   describe 'active record' do
-    it 'creates history entry on state change' do
+    subject! do
       object = Dummy.create!
       object.a_to_b!
+      object
+    end
+
+    it 'creates history entry on state change' do
       expect(StateHistory.count).to eq 1
       history = StateHistory.first
-      expect(history.stateable).to eq object
+      expect(history.stateable).to eq subject
       expect(history.state).to eq 'b'
       expect(history.previous_state).to eq 'a'
+    end
+
+    it 'is possible to acess history using relation from helper' do
+      expect(subject.state_histories.count).to eq 1
     end
   end
 end

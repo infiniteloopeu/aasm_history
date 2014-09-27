@@ -1,5 +1,5 @@
-require 'aasm_history'
 require 'active_record'
+require 'aasm_history'
 
 Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require_relative f }
 
