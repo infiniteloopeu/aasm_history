@@ -19,6 +19,11 @@ module AASM
     end
   end
 
+  class Configuration
+    attr_accessor :history_class
+    attr_accessor :creator_class
+  end
+
   module ClassMethods
     def aasm(options={}, &block)
       @aasm ||= AASM::Base.new(self, options)
