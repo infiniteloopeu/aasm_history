@@ -23,4 +23,5 @@ end
 
 require 'aasm_history/version'
 require 'aasm_history/aasm_ext/base'
+require 'aasm_history/aasm_ext/configuration'
 require 'aasm_history/load_extensions'
