@@ -16,6 +16,10 @@ Add this line to your application's Gemfile:
 
 ### Active Record
 
+Run the following command to create the relevant migration and model: 
+
+    `rails g model state_history state previous_state stateable:references{polymorphic} stateable_type` 
+
 Add migration:
 
     create_table :state_histories do |t|
