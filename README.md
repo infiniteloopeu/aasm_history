@@ -18,6 +18,8 @@ Add this line to your application's Gemfile:
 
 Add migration:
 
+    # rails g migration create_state_histories
+    
     create_table :state_histories do |t|
       t.string   :state
       t.string   :previous_state
