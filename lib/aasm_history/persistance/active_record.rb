@@ -3,7 +3,7 @@ module AasmHistory
     module ActiveRecord
 
       def aasm_write_state state
-        previous_state = read_attribute(self.class.aasm_column)
+        previous_state = read_attribute(self.class.aasm.attribute_name)
         success = super state
         store_aasm_history state, previous_state if success
         success
