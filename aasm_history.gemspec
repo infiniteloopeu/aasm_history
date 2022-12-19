@@ -17,9 +17,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 2.0.0' # due to Module#prepend
 
-  spec.add_dependency 'aasm', '~> 4.2'
+  spec.add_dependency 'aasm', '~> 5.4'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'bundler', '~> 1.6'
+  spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rspec', '~> 3.1'
   spec.add_development_dependency 'activerecord', '~> 4.1'
   spec.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.9'

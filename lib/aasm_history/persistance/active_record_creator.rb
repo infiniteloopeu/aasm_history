@@ -1,10 +1,11 @@
 module AasmHistory
   module Persistance
     class ActiveRecordCreator
-      def initialize object, state, previous_state
+      def initialize object, state, previous_state, name
         @object = object
         @state = state
         @previous_state = previous_state
+        @name = name
       end
 
       def create
@@ -12,7 +13,7 @@ module AasmHistory
       end
 
       def klass
-        @klass ||= AASM::StateMachine[@object.class].config.history_class.constantize
+        @klass ||= AASM::StateMachineStore[@object.class][@name].config.history_class.constantize
       end
 
       def attributes
